@@ -1,16 +1,32 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   Text,
   View,
   Image,
   ImageBackground,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 //component = function
 // Create a variable which reference to a function
 //read objects, variable, functions from other modules
-import {images, icons} from '../constants';
+import {images, icons, colors} from '../constants';
+import {UIButton} from '../components';
 const WelcomeScreen = props => {
+  const [accountTypes, setAccountTypes] = useState([
+    {
+      name: 'Influencer',
+      isSelected: false,
+    },
+    {
+      name: 'Business',
+      isSelected: false,
+    },
+    {
+      name: 'Individual',
+      isSelected: false,
+    },
+  ]);
   return (
     <View style={{flex: 100}}>
       <ImageBackground
@@ -95,85 +111,47 @@ const WelcomeScreen = props => {
         <View
           style={{
             flex: 40,
-            backgroundColor: 'blue',
           }}>
-          <TouchableOpacity
-            style={{
-              borderColor: 'white',
-              borderWidth: 2,
-              height: 45,
-              borderRadius: 5,
-              //margin trái phải
-              marginHorizontal: 15,
-              //margin trên dưới
-              marginVertical: 10,
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderWidth: 1.5
-            }}>
-            <Text
-              style={{
-                color: 'white',
-                fontSize: 16,
-              }}>
-              Influencer
-            </Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={{
-              borderColor: 'white',
-              borderWidth: 2,
-              height: 45,
-              borderRadius: 5,
-              //margin trái phải
-              marginHorizontal: 15,
-              //margin trên dưới
-              marginVertical: 10,
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderWidth: 1.5
-
-            }}>
-            <Text
-              style={{
-                color: 'white',
-                fontSize: 16,
-              }}>
-              Bussiness
-            </Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={{
-              borderColor: 'white',
-              borderWidth: 2,
-              height: 45,
-              borderRadius: 5,
-              //margin trái phải
-              marginHorizontal: 15,
-              //margin trên dưới
-              marginVertical: 10,
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderWidth: 1.5
-
-            }}>
-            <Text
-              style={{
-                color: 'white',
-                fontSize: 16,
-              }}>
-              Individual
-            </Text>
-          </TouchableOpacity>
+          {accountTypes.map(accountType => (
+            <UIButton 
+              onPress={() => {
+                setAccountTypes(accountTypes.map(eachAccountType => {
+                  return eachAccountType.name === accountType.name?
+                  {...eachAccountType, isSelected : true} : {...eachAccountType, isSelected : false}
+                }))
+              }}
+              title={accountType.name}
+              isSelected={accountType.isSelected}
+            />
+          ))}
         </View>
         <View
           style={{
             flex: 20,
-            backgroundColor: 'purple',
           }}
-        />
+        >
+          <UIButton title= {'Login'.toUpperCase()}/>
+          <Text style={{
+            alignSelf: 'center',
+            color: 'white',
+            fontSize: 14,
+            marginTop: 5
+          }}>Want to register new account?</Text>
+
+          <TouchableOpacity 
+          onPress={() => alert('Register')}
+          style={{
+            marginHorizontal: 155,
+            marginTop: 5
+          }}>
+          <Text style={{
+            alignSelf: 'center',
+            color: colors.primary,
+            fontSize: 14,
+            textDecorationLine: 'underline',
+          }}>Register</Text>
+          </TouchableOpacity>
+        </View>
       </ImageBackground>
     </View>
   );
