@@ -2,8 +2,9 @@ import React, {useState, useEffect} from 'react';
 import {Text, View, Image, TouchableOpacity, TextInput} from 'react-native';
 import {images, colors, icons} from '../constants';
 import { isValidGmail, isValidPassword } from '../validations/validations';
-const Login = props => {
-  //states for validating
+
+const Register = (props) => {
+    //states for validating
   const [errorGmail, setErrorGmail] = useState(' ');
   const [errorPassword, setErrorPassword] = useState(' ');
   //state to store Gmail/password to test this is correct password/
@@ -17,7 +18,8 @@ const Login = props => {
   return (
     <View
       style={{
-        flex: 1,
+        flex: 100,
+        backgroundColor: colors.primary
       }}>
       <View
         style={{
@@ -33,9 +35,9 @@ const Login = props => {
             fontWeight: 'bold',
             width: '50%',
             marginLeft: 10,
-            color: colors.primary,
+            color: colors.white,
           }}>
-          Already have an account?
+          Here's your first step with us
         </Text>
         <Image
           source={images.logo}
@@ -43,11 +45,21 @@ const Login = props => {
             width: 150,
             height: 150,
             marginRight: 10,
+            borderWidth: 1,
+            borderColor: colors.white,
+            backgroundColor: colors.white,
+            borderRadius: 50
           }}
         />
       </View>
-
-      <View
+          <View style = {{
+            borderWidth: 1,
+            margin: 10,
+            borderColor: colors.white,
+            backgroundColor: colors.white,
+            borderRadius: 7,
+          }}>
+          <View
         style={{
           marginLeft: 30,
         }}>
@@ -56,6 +68,7 @@ const Login = props => {
             color: colors.primary,
             fontSize: 14,
             marginVertical: 10,
+            marginTop: 30
           }}>
           Gmail
         </Text>
@@ -114,6 +127,41 @@ const Login = props => {
         }}>{errorPassword}</Text>
       </View>
 
+      <View
+        style={{
+          marginLeft: 30,
+        }}>
+        <Text
+          style={{
+            color: colors.primary,
+            fontSize: 14,
+            marginVertical: 10,
+          }}>
+          Confirm Password
+        </Text>
+        <TextInput
+          onChangeText={text => {
+            setErrorPassword(isValidPassword(text) == true ?' ':
+            
+            ' Password must be at least 5 characters');
+            setPassword(text);
+          }}
+          secureTextEntry={true}
+          placeholder="Re-Enter Password....."
+          placeholderTextColor={colors.placeholder}
+          style={{
+            borderBottomWidth: 2,
+            borderBottomColor: colors.primary,
+            marginRight: 30,
+            paddingBottom: 5,
+          }}
+        />
+        <Text style={{
+          color: 'red',
+          fontSize: 12,
+        }}>{errorPassword}</Text>
+      </View>
+
       <TouchableOpacity
       disabled = {isValidOk() ==  false}
       onPress={() => {
@@ -124,38 +172,22 @@ const Login = props => {
           colors.primary : colors.inactive,
           justifyContent: 'center',
           alignItems: 'center',
-          width: '50%',
+          width: '70%',
           borderRadius: 50,
           alignSelf: 'center',
-          marginTop: 50,
+          marginTop: 10,
+          marginBottom:20
         }}>
         <Text
           style={{
             padding: 10,
             fontSize: 14,
-            color: 'white',
+            color: colors.white,
           }}>
-          Login
+          Register
         </Text>
       </TouchableOpacity>
-
-      <TouchableOpacity
-        style={{
-          width: '50%',
-          alignSelf: 'center',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        <Text
-          style={{
-            color: colors.primary,
-            fontSize: 14,
-            marginTop: 10,
-            padding: 10,
-          }}>
-          New user? Register now
-        </Text>
-      </TouchableOpacity>
+          </View>
 
       <View
         style={{
@@ -164,10 +196,10 @@ const Login = props => {
           alignItems: 'center',
           marginHorizontal: 10,
         }}>
-        <View style={{height: 1, backgroundColor: 'black', flex: 1}}></View>
+        <View style={{height: 1, backgroundColor: colors.white, flex: 1}}></View>
         <Text
           style={{
-            color: colors.primary,
+            color: colors.white,
             fontSize: 14,
             marginTop: 10,
             padding: 10,
@@ -176,7 +208,7 @@ const Login = props => {
           }}>
           Use other methods?
         </Text>
-        <View style={{height: 1, backgroundColor: 'black', flex: 1}}></View>
+        <View style={{height: 1, backgroundColor: colors.white, flex: 1}}></View>
       </View>
 
       <View
@@ -203,6 +235,6 @@ const Login = props => {
       </View>
     </View>
   );
-};
+}
 
-export default Login;
+export default  Register
