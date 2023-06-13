@@ -3,5 +3,6 @@ export default {
     question: require('../assets/Question-icon.png'),
     check: require('../assets/check-icon.png'),
     facebook: require('../assets/facebook-icon.png'),
-    instagram: require('../assets/instagram-icon.png')
+    instagram: require('../assets/instagram-icon.png'),
+    youtube: require('../assets/youtube-icon.png')
 }
