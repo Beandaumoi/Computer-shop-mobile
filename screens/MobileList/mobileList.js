@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   TextInput,
   ScrollView,
-  FlatList
+  FlatList,
 } from 'react-native';
 import {images, colors, icons} from '../../constants';
 import {isValidGmail, isValidPassword} from '../../validations/validations';
@@ -45,7 +45,7 @@ const MobileList = props => {
     },
     {
       name: 'Iphone 14 Pro Max',
-      url: 'https://cdn.viettelstore.vn/Images/Product/ProductImage/1896224739.jpeg',
+      url: 'https://cdn.tgdd.vn/Products/Images/42/251192/iphone-14-pro-max-den-thumb-600x600.jpg',
       status: 'Out of stock',
       price: 1135.79,
       type: 'IOS',
@@ -82,7 +82,7 @@ const MobileList = props => {
       name: 'Redmi Note 12 Pro 5G',
       url: 'https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/g/t/gtt7766.jpg',
       status: 'Stocking',
-      price: 382.50,
+      price: 382.5,
       type: 'MIUI',
       website: 'https://cellphones.com.vn/xiaomi-redmi-note-12-pro-5g.html',
       socialNetworks: {
@@ -105,22 +105,110 @@ const MobileList = props => {
     },
   ]);
 
+  const [categories, setCategories] = useState([
+    {
+      name: 'Điện thoại',
+      icon: icons.phone,
+    },
+    {
+      name: 'Đồng hồ',
+      icon: icons.watch,
+    },
+    {
+      name: 'Laptop',
+      icon: icons.laptop,
+    },
+    {
+      name: 'Apple',
+      icon: icons.apple,
+    },
+    {
+      name: 'Màn hình',
+      icon: icons.screen,
+    },
+    {
+      name: 'Đồ chơi CN',
+      icon: icons.gaming,
+    },
+    {
+      name: 'Smart TV',
+      icon: icons.tv,
+    },
+    {
+      name: 'Tablet',
+      icon: icons.tablet,
+    },
+    {
+      name: 'Âm Thanh',
+      icon: icons.sound,
+    },
+  ]);
+
   return (
-    <View style={{flex: 1, backgroundColor: colors.white}}>
+    <View style={{flex: 1, backgroundColor: colors.white, paddingBottom: 160}}>
       <View>
-        
+        <View style={{height: 60}}></View>
+        <View
+          style={{
+            height: 100,
+          }}>
+          <View style={{height: 1, backgroundColor: colors.black}}></View>
+          <FlatList
+            horizontal
+            keyExtractor={item => item.name}
+            data={categories}
+            renderItem={({item}) => {
+              return (
+                <TouchableOpacity
+                  onPress={() => {
+                    alert('You Pressing icon ');
+                  }}
+                  style={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                  <Image
+                    style={{
+                      height: 50,
+                      width: 50,
+                      resizeMode: 'cover',
+                      borderWidth: 2,
+                      borderRadius: 25,
+                      margin: 10,
+                      backgroundColor: colors.primary,
+                    }}
+                    source={item.icon}
+                  />
+                  <Text
+                    style={{
+                      color: colors.black,
+                      fontSize: 12,
+                    }}>
+                    {item.name}
+                  </Text>
+                </TouchableOpacity>
+              );
+            }}
+            style={{flex: 1}}></FlatList>
+          <View style={{height: 1, backgroundColor: colors.black}}></View>
+        </View>
+
         {/* <ScrollView>
          {mobiles.map(eachMobile => <MobileItem mobile = {eachMobile} key = {eachMobile.name}/>)}
         </ScrollView> */}
         {/*FlatList*/}
         <FlatList
-        data= {mobiles}
-        renderItem= {({item}) => <MobileItem 
-        onPress = {() => {
-          alert('you pressed')
-        }} 
-        mobile = {item}/>}
-        keyExtractor={eachMobile => eachMobile.name} />
+          data={mobiles}
+          renderItem={({item}) => (
+            <MobileItem
+              onPress={() => {
+                alert('you pressed');
+              }}
+              mobile={item}
+            />
+          )}
+          keyExtractor={eachMobile => eachMobile.name}
+        />
       </View>
     </View>
   );
