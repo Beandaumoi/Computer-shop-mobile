@@ -5,7 +5,6 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
-  onPress,
 } from 'react-native';
 import {images, colors, icons} from '../../constants';
 // _ ám chỉ chỉ sử dụng thuộc tính trong nó
