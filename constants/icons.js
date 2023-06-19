@@ -13,5 +13,7 @@ export default {
     gaming: require('../assets/gaming-icon.png'),
     tv: require('../assets/tv-monitor-icon.png'),
     tablet: require('../assets/tablet-icon.png'),
-    sound: require('../assets/phone-icon.png')
+    sound: require('../assets/phone-icon.png'),
+    menu: require('../assets/menu-icon.png'),
+    search: require('../assets/search-icon.png'),
 }
