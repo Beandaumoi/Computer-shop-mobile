@@ -9,13 +9,12 @@ import {
   FlatList,
 } from 'react-native';
 import {images, colors, icons} from '../../constants';
-import {isValidGmail, isValidPassword} from '../../validations/validations';
 import MobileItem from './mobileItem';
 /*
 - ListView from map of objects
 - FlatList
 */
-const MobileList = props => {
+function MobileList(props) {
   //list of mobiles = state
   const [mobiles, setMobiles] = useState([
     {
@@ -271,12 +270,16 @@ const MobileList = props => {
             style={{
               width: 300,
               height: 300,
-              marginTop: '50%',
               alignSelf: 'center',
               resizeMode: 'contain',
-              marginBottom: '50%',
             }}
           />
+          <Text style = {{
+            color: colors.error,
+            fontSize: 30,
+            position: 'relative',
+            marginBottom: 100
+          }}>Error 404 Not Found!</Text>
         </View>
       )}
     </View>
