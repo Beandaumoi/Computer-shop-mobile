@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Text, View, Image, TouchableOpacity, TextInput} from 'react-native';
 import {images, colors, icons} from '../constants';
-import { isValidGmail, isValidPassword } from '../validations/validations';
+import {isValidGmail, isValidPassword} from '../validations/validations';
 const Login = props => {
   //states for validating
   const [errorGmail, setErrorGmail] = useState(' ');
@@ -11,9 +11,11 @@ const Login = props => {
   const [gmail, setGmail] = useState(' ');
   const [password, setPassword] = useState(' ');
   //Check isValid or Not isValid
-  const isValidOk = () => gmail.length > 0 && password.length >0
-                        && isValidGmail(gmail) == true &&
-                        isValidPassword(password) == true 
+  const isValidOk = () =>
+    gmail.length > 0 &&
+    password.length > 0 &&
+    isValidGmail(gmail) == true &&
+    isValidPassword(password) == true;
   return (
     <View
       style={{
@@ -25,7 +27,7 @@ const Login = props => {
           flexDirection: 'row',
           justifyContent: 'space-around',
           alignItems: 'center',
-          marginTop: 20,
+          marginTop: 100,
         }}>
         <Text
           style={{
@@ -61,7 +63,9 @@ const Login = props => {
         </Text>
         <TextInput
           onChangeText={text => {
-            setErrorGmail(isValidGmail(text) == true? ' ':'Gmail not correct format');
+            setErrorGmail(
+              isValidGmail(text) == true ? ' ' : 'Gmail not correct format',
+            );
             setGmail(text);
           }}
           placeholder="Examples@gmail.com"
@@ -73,10 +77,13 @@ const Login = props => {
             paddingBottom: 5,
           }}
         />
-        <Text style={{
-          color: 'red',
-          fontSize: 12,
-        }}>{errorGmail}</Text>
+        <Text
+          style={{
+            color: 'red',
+            fontSize: 12,
+          }}>
+          {errorGmail}
+        </Text>
       </View>
 
       <View
@@ -93,9 +100,11 @@ const Login = props => {
         </Text>
         <TextInput
           onChangeText={text => {
-            setErrorPassword(isValidPassword(text) == true ?' ':
-            
-            ' Password must be at least 5 characters');
+            setErrorPassword(
+              isValidPassword(text) == true
+                ? ' '
+                : ' Password must be at least 5 characters',
+            );
             setPassword(text);
           }}
           secureTextEntry={true}
@@ -108,20 +117,23 @@ const Login = props => {
             paddingBottom: 5,
           }}
         />
-        <Text style={{
-          color: 'red',
-          fontSize: 12,
-        }}>{errorPassword}</Text>
+        <Text
+          style={{
+            color: 'red',
+            fontSize: 12,
+          }}>
+          {errorPassword}
+        </Text>
       </View>
 
       <TouchableOpacity
-      disabled = {isValidOk() ==  false}
-      onPress={() => {
-        alert(`email: ${gmail}, password: ${password}`)
-      }}
+        disabled={isValidOk() == false}
+        onPress={() => {
+          alert(`email: ${gmail}, password: ${password}`);
+        }}
         style={{
-          backgroundColor: isValidOk() == true ? 
-          colors.primary : colors.inactive,
+          backgroundColor:
+            isValidOk() == true ? colors.primary : colors.inactive,
           justifyContent: 'center',
           alignItems: 'center',
           width: '50%',

@@ -114,6 +114,7 @@ const WelcomeScreen = props => {
           }}>
           {accountTypes.map(accountType => (
             <UIButton 
+            key = {accountType.name}
               onPress={() => {
                 setAccountTypes(accountTypes.map(eachAccountType => {
                   return eachAccountType.name === accountType.name?

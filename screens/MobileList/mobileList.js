@@ -144,10 +144,59 @@ const MobileList = props => {
     },
   ]);
 
+  const [searchText, setSearchText] = useState('');
+  const filteredMobiles = () =>
+    mobiles.filter(eachMobile =>
+      eachMobile.name.toLowerCase().includes(searchText.toLowerCase()),
+    );
   return (
-    <View style={{flex: 1, backgroundColor: colors.white, paddingBottom: 160}}>
+    <View style={{flex: 1, backgroundColor: colors.white}}>
       <View>
-        <View style={{height: 60}}></View>
+        <View
+          style={{
+            height: 50,
+            marginHorizontal: 10,
+            marginTop: 50,
+            flexDirection: 'row',
+          }}>
+          <Image
+            source={icons.search}
+            style={{
+              width: 16,
+              height: 16,
+              resizeMode: 'contain',
+              position: 'absolute',
+              top: 8,
+              left: 5,
+            }}
+          />
+          <TextInput
+            autoCorrect={false}
+            onChangeText={text => {
+              setSearchText(text);
+            }}
+            style={{
+              backgroundColor: colors.placeholder,
+              opacity: 1,
+              height: 30,
+              flex: 1,
+              marginRight: 10,
+              borderRadius: 5,
+              fontSize: 16,
+              paddingLeft: 25,
+            }}
+          />
+          <Image
+            source={icons.menu}
+            style={{
+              height: 30,
+              width: 25,
+              tintColor: 'rgba(0,0,0,0.8)',
+              marginBottom: 3,
+              resizeMode: 'contain',
+            }}
+          />
+        </View>
         <View
           style={{
             height: 100,
@@ -169,8 +218,8 @@ const MobileList = props => {
                   }}>
                   <Image
                     style={{
-                      height: 50,
-                      width: 50,
+                      height: 45,
+                      width: 45,
                       resizeMode: 'cover',
                       borderWidth: 2,
                       borderRadius: 25,
@@ -196,9 +245,10 @@ const MobileList = props => {
         {/* <ScrollView>
          {mobiles.map(eachMobile => <MobileItem mobile = {eachMobile} key = {eachMobile.name}/>)}
         </ScrollView> */}
-        {/*FlatList*/}
+      </View>
+      {filteredMobiles().length > 0 ? (
         <FlatList
-          data={mobiles}
+          data={filteredMobiles()}
           renderItem={({item}) => (
             <MobileItem
               onPress={() => {
@@ -209,7 +259,26 @@ const MobileList = props => {
           )}
           keyExtractor={eachMobile => eachMobile.name}
         />
-      </View>
+      ) : (
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Image
+            source={images.error}
+            style={{
+              width: 300,
+              height: 300,
+              marginTop: '50%',
+              alignSelf: 'center',
+              resizeMode: 'contain',
+              marginBottom: '50%',
+            }}
+          />
+        </View>
+      )}
     </View>
   );
 };

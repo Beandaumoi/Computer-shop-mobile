@@ -37,6 +37,7 @@ const MobileItem = props => {
         height: 150,
         paddingTop: 20,
         flexDirection: 'row',
+        marginBottom: 15
       }}>
       <Image
         style={{
