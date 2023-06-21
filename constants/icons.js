@@ -19,5 +19,16 @@ export default {
     heart: require('../assets/heart-icon.png'),
     star: require('../assets/star-icon.png'),
     heartActive: require('../assets/heart_active-icon.png'),
-    starInActive: require('../assets/star_inactive-icon.png')
+    starInActive: require('../assets/star_inactive-icon.png'),
+    global: require('../assets/globe-icon.png'),
+    rightArrow: require('../assets/right-icon.png'),
+    cloud: require('../assets/cloud-icon.png'),
+    phoneNumber: require('../assets/call-icon.png'),
+    email: require('../assets/email-icon.png'),
+    signOut: require('../assets/logout-icon.png'),
+    lockApp: require('../assets/password-icon.png'),
+    fingerPrint: require('../assets/fingerprint-icon.png'),
+    lock: require('../assets/padlock-icon.png'),
+    docs: require('../assets/docs-icon.png'),
+    openSource: require('../assets/open-folder-with-document-icon.png')
 }

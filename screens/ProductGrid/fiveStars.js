@@ -22,6 +22,7 @@ function FiveStarts(props) {
       {[0, 1, 2, 3, 4].map(item =>
         item <= numberOfStars - 1 ? (
           <Image
+            key={`${item}`}
             style={{
               width: 10,
               height: 10,
@@ -33,6 +34,7 @@ function FiveStarts(props) {
           />
         ) : (
           <Image
+            key={`${item}`}
             style={{
               width: 10,
               height: 10,
