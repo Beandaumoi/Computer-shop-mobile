@@ -1,4 +1,11 @@
-import {Text, View, Image, TouchableOpacity, TextInput, onPress} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  TextInput,
+} from 'react-native';
 import {images, colors, icons} from '../../constants';
 // _ ám chỉ chỉ sử dụng thuộc tính trong nó
 const _getColorFromStatus = status => {
@@ -22,7 +29,7 @@ const _getColorFromStatus = status => {
 };
 const MobileItem = props => {
   let {name, url, status, price, type, website, socialNetworks} = props.mobile;
-  let {onPress} = props
+  let {onPress} = props;
   return (
     <TouchableOpacity
       onPress={onPress}
