@@ -12,7 +12,7 @@ import {
 //read objects, variable, functions from other modules
 import {images, icons, colors} from '../constants';
 import {UIButton} from '../components';
-const WelcomeScreen = props => {
+function WelcomeScreen(props) {
   const [accountTypes, setAccountTypes] = useState([
     {
       name: 'Influencer',

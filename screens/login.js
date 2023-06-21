@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Text, View, Image, TouchableOpacity, TextInput} from 'react-native';
 import {images, colors, icons} from '../constants';
 import {isValidGmail, isValidPassword} from '../validations/validations';
-const Login = props => {
+function Login(props) {
   //states for validating
   const [errorGmail, setErrorGmail] = useState(' ');
   const [errorPassword, setErrorPassword] = useState(' ');

@@ -27,7 +27,7 @@ const _getColorFromStatus = status => {
     ? colors.error
     : colors.success;
 };
-const MobileItem = props => {
+function MobileItem(props) {
   let {name, url, status, price, type, website, socialNetworks} = props.mobile;
   let {onPress} = props;
   return (

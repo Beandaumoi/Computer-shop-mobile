@@ -16,4 +16,8 @@ export default {
     sound: require('../assets/phone-icon.png'),
     menu: require('../assets/menu-icon.png'),
     search: require('../assets/search-icon.png'),
+    heart: require('../assets/heart-icon.png'),
+    star: require('../assets/star-icon.png'),
+    heartActive: require('../assets/heart_active-icon.png'),
+    starInActive: require('../assets/star_inactive-icon.png')
 }

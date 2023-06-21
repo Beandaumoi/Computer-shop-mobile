@@ -3,7 +3,7 @@ import {Text, View, Image, TouchableOpacity, TextInput} from 'react-native';
 import {images, colors, icons} from '../constants';
 import {isValidGmail, isValidPassword} from '../validations/validations';
 
-const Register = props => {
+function Register(props) {
   //states for validating
   const [errorGmail, setErrorGmail] = useState(' ');
   const [errorPassword, setErrorPassword] = useState(' ');
