@@ -8,6 +8,7 @@ import {
   ScrollView,
   FlatList,
 } from 'react-native';
+import { colors } from '../../constants';
 import GridItem from './gridItem';
 function ProductGridView(props) {
   const [products, setProducts] = useState([
@@ -96,6 +97,7 @@ function ProductGridView(props) {
     <View
       style={{
         flex: 1,
+        backgroundColor: colors.white
       }}>
       <FlatList
         style={{marginTop: 35}}
