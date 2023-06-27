@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { colors } from '../../constants';
 import GridItem from './gridItem';
+import { UIHeader } from '../../components';
 function ProductGridView(props) {
   const [products, setProducts] = useState([
     {
@@ -94,13 +95,9 @@ function ProductGridView(props) {
     },
   ]);
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: colors.white
-      }}>
+    <View style={{flex: 1,backgroundColor: colors.white}}>
+      <UIHeader title={'Menu'} />
       <FlatList
-        style={{marginTop: 35}}
         data={products}
         //số cột dùng
         numColumns={2}

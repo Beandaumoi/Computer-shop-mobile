@@ -8,7 +8,11 @@ thì cùng safe area sẽ tránh 2 tai thỏ và phần còn lại sẽ là safe
 hình khác nhau - cần 2 thằng trên)
  */
 import * as React from 'react';
-import {MobileList, ProductGridView, Setting} from '../screens';
+import {
+  MobileList,
+  ProductGridView, 
+  Setting, 
+  Profile} from '../screens';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {colors, icons} from '../constants';
 import {Image, View} from 'react-native';
@@ -52,7 +56,9 @@ const screenOptions = ({route}) => ({
             ? icons.phone
             : route.name == 'Setting'
             ? icons.setting
-            : icons.pc
+            : route.name == 'Profile'
+            ? icons.user
+            : icons.question
         }
       />
     );
@@ -80,6 +86,13 @@ function UITab(props) {
         component={Setting}
         options={{
           tabBarLabel: 'Setting',
+        }}
+      />
+      <Tab.Screen
+        name={'Profile'}
+        component={Profile}
+        options={{
+          tabBarLabel: 'Profile',
         }}
       />
     </Tab.Navigator>
