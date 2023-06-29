@@ -5,6 +5,8 @@ import MobileList from "./MobileList/mobileList";
 import ProductGridView from "./ProductGrid/productGridView";
 import Setting from "./setting";
 import Profile from "./profile";
+import Chat from "./Chats/chat";
+import Messenger from "./Messenger/messenger";
 export {
     WelcomeScreen,
     Login,
@@ -13,4 +15,6 @@ export {
     ProductGridView,
     Setting,
     Profile,
+    Chat,
+    Messenger
 }

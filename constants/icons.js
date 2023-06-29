@@ -33,5 +33,9 @@ export default {
     openSource: require('../assets/open-folder-with-document-icon.png'),
     pc: require('../assets/pc-icon.png'),
     setting: require('../assets/setting-icon.png'),
-    user: require('../assets/user-icon.png')
+    user: require('../assets/user-icon.png'),
+    leftArrow: require('../assets/leftArrow-icon.png'),
+    bin: require('../assets/bin-icon.png'),
+    dots: require('../assets/dots-icon.png'),
+    send: require('../assets/send-message-icon.png'),
 }
