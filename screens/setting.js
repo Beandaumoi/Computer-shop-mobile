@@ -16,6 +16,10 @@ function Setting(props) {
   const [isUseFingerPrint, setUseFingerPrint] = useState(false);
   const [isEnabledPassword, setEnabledPassword] = useState(true);
 
+  //navigation
+  const {navigation, route} = props;
+  //function of navigate to/back
+  const {navigate, goBack} = navigation;
   return (
     <View style={{flex: 1, backgroundColor: colors.white}}>
       <UIHeader title={'Settings'} />
@@ -193,7 +197,10 @@ function Setting(props) {
               source={icons.rightArrow}
             />
           </View>
-          <View
+          <TouchableOpacity
+            onPress={() => {
+              navigate('WelcomeScreen');
+            }}
             style={{
               flexDirection: 'row',
               marginTop: 10,
@@ -223,7 +230,7 @@ function Setting(props) {
               }}
               source={icons.rightArrow}
             />
-          </View>
+          </TouchableOpacity>
           {/* Security Settings */}
           <View
             style={{

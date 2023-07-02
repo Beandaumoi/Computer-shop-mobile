@@ -148,6 +148,11 @@ function MobileList(props) {
     mobiles.filter(eachMobile =>
       eachMobile.name.toLowerCase().includes(searchText.toLowerCase()),
     );
+
+  //navigation
+  const {navigation, route} = props;
+  //function of navigate to/back
+  const {navigate, goBack} = navigation;
   return (
     <View style={{flex: 1, backgroundColor: colors.white}}>
       <View>
@@ -185,16 +190,21 @@ function MobileList(props) {
               paddingLeft: 25,
             }}
           />
-          <Image
-            source={icons.menu}
-            style={{
-              height: 30,
-              width: 25,
-              tintColor: 'rgba(0,0,0,0.8)',
-              marginBottom: 3,
-              resizeMode: 'contain',
-            }}
-          />
+          <TouchableOpacity
+            onPress={() => {
+              navigate('Setting');
+            }}>
+            <Image
+              source={icons.menu}
+              style={{
+                height: 30,
+                width: 25,
+                tintColor: 'rgba(0,0,0,0.8)',
+                marginBottom: 3,
+                resizeMode: 'contain',
+              }}
+            />
+          </TouchableOpacity>
         </View>
         <View
           style={{
@@ -274,16 +284,19 @@ function MobileList(props) {
               resizeMode: 'contain',
             }}
           />
-          <Text style = {{
-            color: colors.error,
-            fontSize: 30,
-            position: 'relative',
-            marginBottom: 100
-          }}>Error 404 Not Found!</Text>
+          <Text
+            style={{
+              color: colors.error,
+              fontSize: 30,
+              position: 'relative',
+              marginBottom: 100,
+            }}>
+            Error 404 Not Found!
+          </Text>
         </View>
       )}
     </View>
   );
-};
+}
 
 export default MobileList;

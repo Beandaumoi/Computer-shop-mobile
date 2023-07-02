@@ -9,14 +9,18 @@ function Register(props) {
   const [errorPassword, setErrorPassword] = useState(' ');
   //state to store Gmail/password to test this is correct password/
   //Gmail and give the error or nothing
-  const [gmail, setGmail] = useState(' ');
-  const [password, setPassword] = useState(' ');
+  const [gmail, setGmail] = useState('');
+  const [password, setPassword] = useState('');
   //Check isValid or Not isValid
   const isValidOk = () =>
     gmail.length > 0 &&
     password.length > 0 &&
     isValidGmail(gmail) == true &&
     isValidPassword(password) == true;
+  //navigation
+  const {navigation, route} = props;
+  //function of navigate to/back
+  const {navigate, goBack} = navigation;
   return (
     <View
       style={{
@@ -82,6 +86,7 @@ function Register(props) {
               );
               setGmail(text);
             }}
+            autoCapitalize= 'none'
             placeholder="Examples@gmail.com"
             placeholderTextColor={colors.placeholder}
             style={{
@@ -183,7 +188,7 @@ function Register(props) {
         <TouchableOpacity
           disabled={isValidOk() == false}
           onPress={() => {
-            alert(`email: ${gmail}, password: ${password}`);
+            navigate('Login');
           }}
           style={{
             backgroundColor:
@@ -255,6 +260,6 @@ function Register(props) {
       </View>
     </View>
   );
-};
+}
 
 export default Register;

@@ -28,9 +28,9 @@ function WelcomeScreen(props) {
     },
   ]);
   //navigation
-  const {navigation, route} = props
+  const {navigation, route} = props;
   //function of navigate to/back
-  const {navigate, goBack} = navigation
+  const {navigate, goBack} = navigation;
   return (
     <View style={{flex: 100}}>
       <ImageBackground
@@ -57,7 +57,7 @@ function WelcomeScreen(props) {
           />
           <Text
             style={{
-              color: 'white',
+              color: colors.white,
               fontWeight: 'bold',
               fontSize: 15,
             }}>
@@ -73,7 +73,7 @@ function WelcomeScreen(props) {
             style={{
               width: 25,
               height: 25,
-              tintColor: 'white',
+              tintColor: colors.white,
               marginRight: 5,
             }}
           />
@@ -90,7 +90,7 @@ function WelcomeScreen(props) {
               marginTop: 45,
               marginBottom: 8,
               fontSize: 16,
-              color: 'white',
+              color: colors.white,
             }}>
             Welcome To
           </Text>
@@ -98,7 +98,7 @@ function WelcomeScreen(props) {
             style={{
               marginBottom: 8,
               fontWeight: 'bold',
-              color: 'white',
+              color: colors.white,
               fontSize: 20,
             }}>
             YOURCOMPANY.CO!
@@ -107,7 +107,7 @@ function WelcomeScreen(props) {
             style={{
               marginBottom: 8,
               fontSize: 16,
-              color: 'white',
+              color: colors.white,
             }}>
             Please Select your account type
           </Text>
@@ -117,13 +117,16 @@ function WelcomeScreen(props) {
             flex: 40,
           }}>
           {accountTypes.map(accountType => (
-            <UIButton 
-            key = {accountType.name}
+            <UIButton
+              key={accountType.name}
               onPress={() => {
-                setAccountTypes(accountTypes.map(eachAccountType => {
-                  return eachAccountType.name === accountType.name?
-                  {...eachAccountType, isSelected : true} : {...eachAccountType, isSelected : false}
-                }))
+                setAccountTypes(
+                  accountTypes.map(eachAccountType => {
+                    return eachAccountType.name === accountType.name
+                      ? {...eachAccountType, isSelected: true}
+                      : {...eachAccountType, isSelected: false};
+                  }),
+                );
               }}
               title={accountType.name}
               isSelected={accountType.isSelected}
@@ -133,37 +136,46 @@ function WelcomeScreen(props) {
         <View
           style={{
             flex: 20,
-          }}
-        >
-          <UIButton
-          onPress = {() => {
-            navigate('Login')
-          }}
-           title= {'Login'.toUpperCase()}/>
-          <Text style={{
-            alignSelf: 'center',
-            color: 'white',
-            fontSize: 14,
-            marginTop: 5
-          }}>Want to register new account?</Text>
-
-          <TouchableOpacity 
-          onPress={() => alert('Register')}
-          style={{
-            marginHorizontal: 155,
-            marginTop: 5
           }}>
-          <Text style={{
-            alignSelf: 'center',
-            color: colors.primary,
-            fontSize: 14,
-            textDecorationLine: 'underline',
-          }}>Register</Text>
+          <UIButton
+            onPress={() => {
+              navigate('Login');
+            }}
+            title={'Login'.toUpperCase()}
+          />
+          <Text
+            style={{
+              alignSelf: 'center',
+              color: colors.white,
+              fontSize: 14,
+              marginTop: 5,
+            }}>
+            Want to register new account?
+          </Text>
+
+          <TouchableOpacity
+            onPress={() => {
+              navigate('Register');
+            }}
+            style={{
+              marginHorizontal: 155,
+              marginTop: 5,
+            }}>
+            <Text
+              style={{
+                alignSelf: 'center',
+                color: colors.primary,
+                fontSize: 16,
+                fontWeight: 800,
+                textDecorationLine: 'underline',
+              }}>
+              Register
+            </Text>
           </TouchableOpacity>
         </View>
       </ImageBackground>
     </View>
   );
-};
+}
 
 export default WelcomeScreen;

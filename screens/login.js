@@ -18,9 +18,9 @@ function Login(props) {
     isValidPassword(password) == true;
 
   //navigation
-  const {navigation, route} = props
+  const {navigation, route} = props;
   //function of navigate to/back
-  const {navigate, goBack} = navigation
+  const {navigate, goBack} = navigation;
   return (
     <View
       style={{
@@ -75,7 +75,7 @@ function Login(props) {
           }}
           placeholder="Examples@gmail.com"
           placeholderTextColor={colors.placeholder}
-          autoCapitalize= 'none'
+          autoCapitalize="none"
           value={gmail}
           style={{
             borderBottomWidth: 2,
@@ -137,7 +137,7 @@ function Login(props) {
       <TouchableOpacity
         disabled={isValidOk() == false}
         onPress={() => {
-          navigate('UITab')
+          navigate('UITab');
         }}
         style={{
           backgroundColor:
@@ -161,7 +161,7 @@ function Login(props) {
 
       <TouchableOpacity
         onPress={() => {
-          navigate('Register')
+          navigate('Register');
         }}
         style={{
           width: '50%',
@@ -226,6 +226,6 @@ function Login(props) {
       </View>
     </View>
   );
-};
+}
 
 export default Login;

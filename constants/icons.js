@@ -32,5 +32,6 @@ export default {
     docs: require('../assets/docs-icon.png'),
     openSource: require('../assets/open-folder-with-document-icon.png'),
     pc: require('../assets/pc-icon.png'),
-    setting: require('../assets/setting-icon.png')
+    setting: require('../assets/setting-icon.png'),
+    user: require('../assets/user-icon.png')
 }
