@@ -40,14 +40,13 @@ function Profile(props) {
     url,
     registeredDate,
   } = user;
-  alert(JSON.stringify(populations));
   return (
     <SafeAreaView
-      style={{
-        flex: 1,
-        paddingTop: 50,
-        paddingLeft: 20,
-      }}>
+    style={{
+      flex: 1,
+      paddingTop: 50,
+      paddingLeft: 20,
+    }}>
       <Image
         style={{
           width: 160,

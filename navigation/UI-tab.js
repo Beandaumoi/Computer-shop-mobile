@@ -12,7 +12,8 @@ import {
   MobileList,
   ProductGridView, 
   Setting, 
-  Profile} from '../screens';
+  Profile,
+  Chat} from '../screens';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {colors, icons} from '../constants';
 import {Image, View} from 'react-native';
@@ -58,6 +59,8 @@ const screenOptions = ({route}) => ({
             ? icons.setting
             : route.name == 'Profile'
             ? icons.user
+            :route.name == 'Chat'
+            ? icons.question
             : icons.question
         }
       />
@@ -81,18 +84,25 @@ function UITab(props) {
           tabBarLabel: 'Phone-Products',
         }}
       />
+        <Tab.Screen
+          name={'Chat'}
+          component={Chat}
+          options={{
+            tabBarLabel: 'Chat',
+          }}
+        />
+        <Tab.Screen
+          name={'Profile'}
+          component={Profile}
+          options={{
+            tabBarLabel: 'Profile',
+          }}
+        />
       <Tab.Screen
         name={'Setting'}
         component={Setting}
         options={{
           tabBarLabel: 'Setting',
-        }}
-      />
-      <Tab.Screen
-        name={'Profile'}
-        component={Profile}
-        options={{
-          tabBarLabel: 'Profile',
         }}
       />
     </Tab.Navigator>

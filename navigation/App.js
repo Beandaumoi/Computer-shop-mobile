@@ -13,7 +13,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {StackRouter} from 'react-navigation';
-import {WelcomeScreen, Login, Register} from '../screens';
+import {WelcomeScreen, Login, Register, Messenger} from '../screens';
 import UITab from './UI-tab';
 const Stack = createNativeStackNavigator();
 function App(props) {
@@ -28,6 +28,7 @@ function App(props) {
         <Stack.Screen name={'Login'} component={Login} />
         <Stack.Screen name={'Register'} component={Register} />
         <Stack.Screen name={'UITab'} component={UITab} />
+        <Stack.Screen name={'Messenger'} component={Messenger} />
       </Stack.Navigator>
     </NavigationContainer>
   );
